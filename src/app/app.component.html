@@ -10,14 +10,17 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
     <mat-nav-list>
-      <a mat-list-item>Active</a>
-      <a mat-list-item>Archive</a>
-      <a mat-list-item>Removed</a>
+      <a mat-list-item [routerLinkActive]="['active']" (click)="sidenav.toggle()" [routerLink]="['todos']">Active</a>
+      <a mat-list-item [routerLinkActive]="['active']" (click)="sidenav.toggle()" [routerLink]="['archive']">Archive</a>
+      <a mat-list-item [routerLinkActive]="['active']" (click)="sidenav.toggle()" [routerLink]="['removed']">Removed</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div style="height: 92vh;">
-      <router-outlet></router-outlet>
+    <div class="content">
+      <div class="container">
+        <app-add-todo></app-add-todo>
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,0 +1,29 @@
+@import "../../../styles/colors";
+
+.form-add-todo {
+  background-color: rgba(#af4448, 1);
+  padding-right: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.form-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .add-todo-inp {
+    width: 95%;
+    font-size: 1rem;
+    background-color: #424242;
+  }
+
+  .add-todo-btn {
+    width: 50px;
+    height: 50px;
+    background-color: #af4448;
+  }
+}
+
+

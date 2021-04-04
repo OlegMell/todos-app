@@ -1,11 +1,6 @@
 @import "../styles/colors";
 
-//h1 {
-//  color: $black;
-//  background-color: $primary-color;
-//  padding: 10px;
-//  margin: 0;
-//}
-div {
-  background-color: white;
+.content {
+  height: 92vh;
+  background-color: rgba($white, .5);
 }

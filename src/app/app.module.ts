@@ -17,12 +17,21 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { ArchivedTodosComponent } from './components/archived-todos/archived-todos.component';
+import { RemovedTodosComponent } from './components/removed-todos/removed-todos.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import { AddTodoComponent } from './components/add-todo/add-todo.component';
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
-    TodoComponent
+    TodoComponent,
+    ArchivedTodosComponent,
+    RemovedTodosComponent,
+    AddTodoComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +42,9 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     EffectsModule.forRoot([TodosEffects]),
     BrowserAnimationsModule,
     MatSidenavModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatListModule,
     MatIconModule,
     MatButtonModule,

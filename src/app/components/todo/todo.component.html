@@ -1,1 +1,12 @@
-<p>todo works!</p>
+<mat-card class="todo">
+  <mat-card-title>{{todo.title}}</mat-card-title>
+  <mat-card-content>{{todo.description}}</mat-card-content>
+  <mat-card-actions class="todo-btn-box">
+    <button mat-icon-button class="action-btn">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-icon-button class="action-btn">
+      <mat-icon>archive</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

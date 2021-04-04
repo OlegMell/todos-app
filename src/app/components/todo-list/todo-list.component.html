@@ -1,1 +1,5 @@
-<p>todo-list works!</p>
+<div class="todo-list">
+  <app-todo *ngFor="let todo of (this.todos$ | async); trackBy: trackByFn"
+            [todo]="todo"></app-todo>
+
+</div>

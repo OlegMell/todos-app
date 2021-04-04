@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {selectAllTodos} from "../../store";
+import {Store} from "@ngrx/store";
 
 @Component({
   selector: 'app-todo-list',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
+  todos$
 
-  constructor() { }
+  constructor(private readonly store: Store) {
+  }
 
   ngOnInit(): void {
+    this.todos$ = this.store.select(selectAllTodos)
+  }
+
+  trackByFn(index, item) {
+    return item.id
   }
 
 }
