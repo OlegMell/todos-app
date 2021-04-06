@@ -23,6 +23,10 @@ import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import {MatInputModule} from "@angular/material/input";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { ToastrModule } from 'ngx-toastr';
+import { LoaderComponent } from './shared/components/loader/loader.component';
+import { ToastComponent } from './shared/components/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,9 @@ import {MatInputModule} from "@angular/material/input";
     TodoComponent,
     ArchivedTodosComponent,
     RemovedTodosComponent,
-    AddTodoComponent
+    AddTodoComponent,
+    LoaderComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +54,9 @@ import {MatInputModule} from "@angular/material/input";
     MatListModule,
     MatIconModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    ToastrModule.forRoot(),
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

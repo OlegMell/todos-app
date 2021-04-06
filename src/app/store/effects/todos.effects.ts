@@ -1,7 +1,13 @@
 import {Injectable} from "@angular/core";
-import {Actions, createEffect, ofType} from "@ngrx/effects";
-import {GetTodosRequestError, GetTodosRequestSuccess, TodosActions} from "../actions/todos.actions";
-import {catchError, map, mergeMap} from "rxjs/operators";
+import {act, Actions, createEffect, ofType} from "@ngrx/effects";
+import {
+  GetTodosRequestError,
+  GetTodosRequestSuccess, RemoveTodoError,
+  RemoveTodoRequest,
+  RemoveTodoSuccess,
+  TodosActions
+} from "../actions/todos.actions";
+import {catchError, exhaustMap, map, mergeMap} from "rxjs/operators";
 import {TodosService} from "../../shared/services/todos.service";
 import {of} from "rxjs";
 import {TodoResponseInterface} from "../../shared/interfaces/todo.interface";
@@ -18,6 +24,15 @@ export class TodosEffects {
       )
     ))
   );
+
+  removeTodo$ = createEffect(() => this.actions$.pipe(
+    ofType(TodosActions.RemoveTodoRequest),
+    mergeMap((action: RemoveTodoRequest) =>
+      this.todosService.removeTodo(action.payload.todoId).pipe(
+        map(() => new RemoveTodoSuccess({...action.payload})),
+        catchError(() => of(new RemoveTodoError({hasError: true})))
+      ))
+  ))
 
   constructor(
     private actions$: Actions,

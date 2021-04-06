@@ -14,4 +14,10 @@ export class TodosService {
       observe: 'response',
     })
   }
+
+  public removeTodo(id: string): Observable<HttpResponse<any>> {
+    return this.httpClient.delete(`https://simple-test-todo-api.herokuapp.com/api/todos/${id}`, {
+      observe: 'response'
+    })
+  }
 }

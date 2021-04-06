@@ -1,0 +1,20 @@
+@import "../../../../styles/colors";
+
+.loader {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba($grey, .7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.active {
+  display: flex;
+}

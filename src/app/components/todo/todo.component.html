@@ -2,10 +2,10 @@
   <mat-card-title>{{todo.title}}</mat-card-title>
   <mat-card-content>{{todo.description}}</mat-card-content>
   <mat-card-actions class="todo-btn-box">
-    <button mat-icon-button class="action-btn">
+    <button mat-icon-button class="action-btn" (click)="removeTodo(todo._id)">
       <mat-icon>delete</mat-icon>
     </button>
-    <button mat-icon-button class="action-btn">
+    <button mat-icon-button class="action-btn" (click)="archiveTodo(todo._id)">
       <mat-icon>archive</mat-icon>
     </button>
   </mat-card-actions>
