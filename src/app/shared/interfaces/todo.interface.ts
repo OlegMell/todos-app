@@ -1,5 +1,5 @@
-export interface TodoResponseInterface {
-  _id: string,
+export interface Todo {
+  _id?: string,
   title: string,
   description: string
   beginDate: Date,

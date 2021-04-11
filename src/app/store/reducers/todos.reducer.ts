@@ -1,10 +1,10 @@
 import {TodoActionsUnion, TodosActions} from "../actions/todos.actions";
-import {TodoResponseInterface} from "../../shared/interfaces/todo.interface";
+import {Todo} from "../../shared/interfaces/todo.interface";
 
 export interface State {
   pending: boolean,
   hasError: boolean,
-  todoList: TodoResponseInterface[]
+  todoList: Todo[]
 }
 
 export const initialState: State = {
@@ -47,6 +47,21 @@ export function reducer(state: State = initialState, action: TodoActionsUnion): 
       return {
         ...state,
         pending: false
+      }
+    case TodosActions.AddTodoRequest:
+      return {
+        ...state,
+        pending: true
+      }
+    case TodosActions.AddTodoRequestSuccess:
+      return {
+        ...state,
+        pending: false
+      }
+    case TodosActions.AddTodoRequestError:
+      return {
+        ...state,
+        hasError: true
       }
     default:
       return {

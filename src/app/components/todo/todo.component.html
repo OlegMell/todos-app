@@ -2,6 +2,8 @@
   <mat-card-title>{{todo.title}}</mat-card-title>
   <mat-card-content>{{todo.description}}</mat-card-content>
   <mat-card-actions class="todo-btn-box">
+    <span *ngIf="todo.beginDate">{{todo.beginDate | date: 'yyyy:MM:dd'}} - </span>
+    <span *ngIf="todo.endDate"> {{todo.endDate | date: 'yyyy:MM:dd'}}</span>
     <button mat-icon-button class="action-btn" (click)="removeTodo(todo._id)">
       <mat-icon>delete</mat-icon>
     </button>

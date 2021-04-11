@@ -1,8 +1,11 @@
-<div class="form-add-todo">
-  <form class="form-box">
+<div class="form-add-todo"
+     [@openClose]="isFocused"
+     (mouseenter)="toggleFocus()"
+     (mouseleave)="toggleFocus()">
+  <form class="form-box" [formGroup]="todoForm" (ngSubmit)="addTodo()">
     <mat-form-field class="add-todo-inp" appearance="fill">
       <mat-label>Create todo...</mat-label>
-      <input matInput>
+      <input matInput [formControl]="title">
     </mat-form-field>
     <button mat-icon-button class="add-todo-btn">
       <mat-icon>done</mat-icon>

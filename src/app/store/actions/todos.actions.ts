@@ -1,5 +1,5 @@
-import {Action, createAction, props} from "@ngrx/store";
-import {TodoResponseInterface} from "../../shared/interfaces/todo.interface";
+import {Action} from "@ngrx/store";
+import {Todo} from "../../shared/interfaces/todo.interface";
 
 export enum TodosActions {
   GetTodoRequest = "[Todo List] Get Todos Request",
@@ -9,6 +9,10 @@ export enum TodosActions {
   RemoveTodoRequest = '[Todo List] Remove Todo Request',
   RemoveTodoSuccess = '[Todo List] Remove Todo Success',
   RemoveTodoError = '[Todo List] Remove Todo Error',
+
+  AddTodoRequest = '[Todo List] Add Todo Request',
+  AddTodoRequestSuccess = '[Todo List] Add Todo Request Success',
+  AddTodoRequestError = '[Todo List] Add Todo Request Error',
 }
 
 export class GetTodosRequest implements Action {
@@ -18,7 +22,7 @@ export class GetTodosRequest implements Action {
 export class GetTodosRequestSuccess implements Action {
   readonly type = TodosActions.GetTodoRequestSuccess
 
-  constructor(public readonly payload: { todos: TodoResponseInterface[] }) {
+  constructor(public readonly payload: { todos: Todo[] }) {
   }
 }
 
@@ -42,9 +46,21 @@ export class RemoveTodoSuccess implements Action {
 
 export class RemoveTodoError implements Action {
   readonly type = TodosActions.RemoveTodoError
+}
 
-  constructor(public readonly payload: { hasError: true }) {
+export class AddTodoRequest implements Action {
+  readonly type = TodosActions.AddTodoRequest
+
+  constructor(public readonly payload: { todo: Todo }) {
   }
+}
+
+export class AddTodoRequestSuccess implements Action {
+  readonly type = TodosActions.AddTodoRequestSuccess
+}
+
+export class AddTodoRequestError implements Action {
+  readonly type = TodosActions.AddTodoRequestError
 }
 
 export type TodoActionsUnion =
@@ -53,4 +69,7 @@ export type TodoActionsUnion =
   GetTodosRequestError |
   RemoveTodoRequest |
   RemoveTodoSuccess |
-  RemoveTodoError
+  RemoveTodoError |
+  AddTodoRequest |
+  AddTodoRequestSuccess |
+  AddTodoRequestError
