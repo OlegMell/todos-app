@@ -5,7 +5,8 @@ import {Todo} from "../interfaces/todo.interface";
 
 @Injectable({providedIn: 'root'})
 export class TodosService {
-  API_URL: string = 'https://simple-test-todo-api.herokuapp.com/api/todos/';
+  // API_URL: string = 'https://simple-test-todo-api.herokuapp.com/api/todos/';
+  API_URL: string = 'http://localhost:8080/api/todos/';
 
   constructor(private readonly httpClient: HttpClient) {
   }
